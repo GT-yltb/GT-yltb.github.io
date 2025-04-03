@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轻启计划 - 运动计划</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>轻启计划</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li class="active"><a href="calorie.html">卡路里大全</a></li>
+                    <li class="active"><a href="health-plan.html">健康方案</a></li>
+                    <li class="active"><a href="exercise-plan.html">运动计划</a></li>
+                    <li class="active"><a href="my_page.html">我的</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <button class="search-icon-btn" id="search-icon-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="search-expandable" id="search-expandable">
+                    <input type="text" id="search-input" placeholder="搜索...">
+                    <button id="search-btn">搜索</button>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- 悬浮AI助手按钮 -->
+    <div class="ai-float-btn" id="ai-float-btn">
+        <img src="images/ai图.png" alt="AI助手" class="ai-logo">
+    </div>
+
+<!-- 悬浮聊天窗口 -->
+<div class="ai-chat-container" id="ai-chat-container">
+    <div class="ai-header">
+        <h2><img src="images/ai图.png" alt="AI助手" class="ai-logo"> ai小启</h2>
+        <button class="close-chat" id="close-chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="ai-messages" id="ai-messages">
+        <div class="ai-message ai-response">
+            <div class="message-content">
+                您好！我是轻启计划的AI健康助手，可以为您解答关于饮食、运动、BMI等方面的健康问题。请问有什么可以帮您？
+            </div>
+        </div>
+    </div>
+    <div class="ai-input-area">
+        <input type="text" id="ai-question" placeholder="输入您的健康问题...">
+        <button id="ai-send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+    <div class="ai-disclaimer">
+        <small>免责声明：AI回答仅供参考，不能替代专业医疗建议</small>
+    </div>
+</div>
+
+    <!-- 运动计划主内容 -->
+    <main class="exercise-main">
+        <div class="container">
+            <!-- 顶部标题 -->
+            <section class="exercise-intro">
+                <h1>运动计划</h1>
+                <p class="subtitle">科学运动加速脂肪燃烧，塑造健康体形</p>
+            </section>
+
+            <!-- 运动计划标签页 -->
+            <section class="exercise-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="beginner">初学者</button>
+                    <button class="tab-btn" data-tab="intermediate">中级</button>
+                    <button class="tab-btn" data-tab="advanced">高级</button>
+                </div>
+                
+                <!-- 初学者计划 -->
+                <div class="tab-content active" id="beginner">
+                    <h2><i class="fas fa-walking"></i> 初学者计划</h2>
+                    <div class="plan-details">
+                        <div class="day-plan">
+                            <h3>周一/周三/周五</h3>
+                            <ul>
+                                <li>快走或慢跑 20-30分钟</li>
+                                <li>基础深蹲 3组×10次</li>
+                                <li>平板支撑 30秒×3组</li>
+                                <li>拉伸放松 10分钟</li>
+                            </ul>
+                        </div>
+                        <div class="day-plan">
+                            <h3>周二/周四</h3>
+                            <ul>
+                                <li>瑜伽或普拉提 30分钟</li>
+                                <li>散步 20分钟</li>
+                            </ul>
+                        </div>
+                        <div class="day-plan">
+                            <h3>周末</h3>
+                            <ul>
+                                <li>休闲活动(游泳/骑行)</li>
+                                <li>休息或轻度拉伸</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 中级计划 -->
+                <div class="tab-content" id="intermediate">
+                    <h2><i class="fas fa-biking"></i> 中级计划</h2>
+                    <div class="plan-details">
+                        <div class="day-plan">
+                            <h3>周一/周四</h3>
+                            <ul>
+                                <li>跑步或椭圆机 30-40分钟</li>
+                                <li>哑铃训练(全身) 3组×12次</li>
+                                <li>仰卧起坐 3组×15次</li>
+                            </ul>
+                        </div>
+                        <div class="day-plan">
+                            <h3>周二/周五</h3>
+                            <ul>
+                                <li>HIIT训练 20分钟</li>
+                                <li>核心训练 15分钟</li>
+                            </ul>
+                        </div>
+                        <div class="day-plan">
+                            <h3>周末</h3>
+                            <ul>
+                                <li>长距离骑行或游泳</li>
+                                <li>瑜伽拉伸</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 高级计划 -->
+                <div class="tab-content" id="advanced">
+                    <h2><i class="fas fa-dumbbell"></i> 高级计划</h2>
+                    <div class="plan-details">
+                        <div class="day-plan">
+                            <h3>周一/周三/周五</h3>
+                            <ul>
+                                <li>高强度间歇训练(HIIT) 30分钟</li>
+                                <li>力量训练(分化训练) 45分钟</li>
+                                <li>核心强化 15分钟</li>
+                            </ul>
+                        </div>
+                        <div class="day-plan">
+                            <h3>周二/周四</h3>
+                            <ul>
+                                <li>耐力训练(跑步/游泳) 45分钟</li>
+                                <li>功能性训练 30分钟</li>
+                            </ul>
+                        </div>
+                        <div class="day-plan">
+                            <h3>周末</h3>
+                            <ul>
+                                <li>户外运动(登山/球类)</li>
+                                <li>主动恢复训练</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 轻启计划 - 健康生活新开始</p>
+        </div>
+    </footer>
+
+    <script src="js/exercise-plan.js"></script>
+</body>
+</html>

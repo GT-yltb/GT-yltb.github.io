@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轻启计划 - 健康方案</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>轻启计划</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li class="active"><a href="calorie.html">卡路里大全</a></li>
+                    <li class="active"><a href="health-plan.html">健康方案</a></li>
+                    <li class="active"><a href="exercise-plan.html">运动计划</a></li>
+                    <li class="active"><a href="my_page.html">我的</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <button class="search-icon-btn" id="search-icon-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="search-expandable" id="search-expandable">
+                    <input type="text" id="search-input" placeholder="搜索...">
+                    <button id="search-btn">搜索</button>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- 悬浮AI助手按钮 -->
+    <div class="ai-float-btn" id="ai-float-btn">
+        <img src="images/ai图.png" alt="AI助手" class="ai-logo">
+    </div>
+
+<!-- 悬浮聊天窗口 -->
+<div class="ai-chat-container" id="ai-chat-container">
+    <div class="ai-header">
+        <h2><img src="images/ai图.png" alt="AI助手" class="ai-logo"> ai小启</h2>
+        <button class="close-chat" id="close-chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="ai-messages" id="ai-messages">
+        <div class="ai-message ai-response">
+            <div class="message-content">
+                您好！我是轻启计划的AI健康助手，可以为您解答关于饮食、运动、BMI等方面的健康问题。请问有什么可以帮您？
+            </div>
+        </div>
+    </div>
+    <div class="ai-input-area">
+        <input type="text" id="ai-question" placeholder="输入您的健康问题...">
+        <button id="ai-send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+    <div class="ai-disclaimer">
+        <small>免责声明：AI回答仅供参考，不能替代专业医疗建议</small>
+    </div>
+</div>
+
+    <!-- 健康方案主内容 -->
+    <main class="health-plan-main">
+        <div class="container">
+            <!-- 顶部标题 -->
+            <section class="health-intro">
+                <h1>健康方案</h1>
+                <p class="subtitle">科学饮食是健康减重的关键</p>
+            </section>
+
+            <!-- 健康原则网格 -->
+            <section class="health-principles">
+                <div class="principles-grid">
+                    <div class="principle-card">
+                        <div class="icon-box">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>均衡饮食</h3>
+                        <p>确保每餐都有蛋白质、碳水化合物和健康脂肪的合理搭配</p>
+                    </div>
+                    <div class="principle-card">
+                        <div class="icon-box">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h3>控制热量</h3>
+                        <p>根据个人情况调整每日热量摄入，避免过度节食</p>
+                    </div>
+                    <div class="principle-card">
+                        <div class="icon-box">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3>充足水分</h3>
+                        <p>每天饮用足够的水，保持身体水分平衡，有助于新陈代谢</p>
+                    </div>
+                    <div class="principle-card">
+                        <div class="icon-box">
+                            <i class="fas fa-carrot"></i>
+                        </div>
+                        <h3>膳食纤维</h3>
+                        <p>增加蔬菜、水果和全谷物摄入，提高饱腹感</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BMI饮食建议 -->
+            <section class="bmi-diet-plan">
+                <div class="bmi-container">
+                    <!-- 左侧BMI分类导航 -->
+                    <div class="bmi-categories">
+                        <div class="bmi-category active" data-bmi="underweight">
+                            <h3>BMI < 18.5</h3>
+                            <p>体重过低</p>
+                        </div>
+                        <div class="bmi-category active" data-bmi="normal">
+                            <h3>BMI 18.5-23.9</h3>
+                            <p>正常体重</p>
+                        </div>
+                        <div class="bmi-category active" data-bmi="overweight">
+                            <h3>BMI 24.0-27.9</h3>
+                            <p>超重</p>
+                        </div>
+                        <div class="bmi-category active" data-bmi="obese">
+                            <h3>BMI ≥ 28</h3>
+                            <p>肥胖</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧饮食建议内容 -->
+                    <div class="diet-content">
+                        <!-- 体重过低 -->
+                        <div class="diet-plan active" id="underweight">
+                            <h2 class="bmi-title">
+                                <i class="fas fa-utensils"></i> BMI < 18.5 饮食建议
+                                <a href="calorie.html" class="calorie-link">点击查看卡路里食谱</a>
+                            </h2>
+                            <div class="plan-section">
+                                <h3>早餐：高热量高蛋白</h3>
+                                <p><strong>目标：</strong>开启代谢，提供持续能量</p>
+                                <ul>
+                                    <li><strong>主食：</strong>全麦面包2片（涂花生酱/奶酪）＋燕麦牛奶粥（燕麦50g＋全脂牛奶200ml＋蜂蜜1勺）</li>
+                                    <li><strong>蛋白质：</strong>水煮蛋2个（或煎蛋）＋希腊酸奶1杯（150g）</li>
+                                    <li><strong>加餐：</strong>香蕉1根（或牛油果半个）</li>
+                                    <li><strong>热量：</strong>约500-600kcal</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>午餐：高蛋白+优质碳水</h3>
+                                <p><strong>目标：</strong>补充能量，促进肌肉合成</p>
+                                <ul>
+                                    <li><strong>主食：</strong>白米饭/杂粮饭150g（可淋橄榄油）</li>
+                                    <li><strong>蛋白质：</strong>煎鸡胸肉150g（或红烧牛肉100g）＋豆腐100g</li>
+                                    <li><strong>蔬菜：</strong>清炒西兰花（橄榄油烹调）＋牛油果沙拉</li>
+                                    <li><strong>加餐：</strong>坚果1把（核桃/杏仁，约30g）</li>
+                                    <li><strong>热量：</strong>约700-800kcal</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>晚餐：易消化+适度热量</h3>
+                                <p><strong>目标：</strong>避免肠胃负担，持续供能</p>
+                                <ul>
+                                    <li><strong>主食：</strong>红薯/土豆泥150g（加黄油或奶酪）</li>
+                                    <li><strong>蛋白质：</strong>三文鱼100g（或清蒸鳕鱼）＋蒸鸡蛋羹1碗</li>
+                                    <li><strong>蔬菜：</strong>蒜炒菠菜（用橄榄油）</li>
+                                    <li><strong>饮品：</strong>全脂牛奶250ml（睡前1小时饮用）</li>
+                                    <li><strong>热量：</strong>约600-700kcal</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>关键营养策略</h3>
+                                <ul>
+                                    <li><strong>热量盈余：</strong>每日总热量需＞基础代谢+300-500kcal</li>
+                                    <li><strong>蛋白质：</strong>1.5-2g/kg体重（如60kg体重需90-120g蛋白质）</li>
+                                    <li><strong>健康脂肪：</strong>橄榄油、坚果、深海鱼、牛油果</li>
+                                    <li><strong>少食多餐：</strong>避免饱胀感，增加进食频率</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 正常体重 -->
+                        <div class="diet-plan" id="normal">
+                            <h2 class="bmi-title">
+                                <i class="fas fa-utensils"></i> BMI 18.5-23.9 饮食建议
+                                <a href="calorie.html" class="calorie-link">点击查看卡路里食谱</a>
+                            </h2>
+                            
+                            <div class="plan-section">
+                                <h3>早餐（约400-500大卡）</h3>
+                                <p><strong>原则：</strong>碳水化合物+优质蛋白+膳食纤维</p>
+                                <ul>
+                                    <li><strong>主食：</strong>全麦面包1-2片/燕麦片50g/杂粮粥1碗</li>
+                                    <li><strong>蛋白质：</strong>水煮蛋1个/无糖酸奶150ml/低脂牛奶200ml</li>
+                                    <li><strong>蔬果：</strong>番茄1个/黄瓜半根/苹果半个</li>
+                                    <li><strong>坚果：</strong>核桃2颗/杏仁10g（可选）</li>
+                                    <li><strong>示例：</strong>燕麦牛奶粥（燕麦50g+低脂牛奶200ml）+ 水煮蛋1个 + 草莓5颗</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>午餐（约500-600大卡）</h3>
+                                <p><strong>原则：</strong>粗细粮搭配+瘦肉+蔬菜</p>
+                                <ul>
+                                    <li><strong>主食：</strong>糙米饭1碗（约100g生米）/红薯1个（中等大小）</li>
+                                    <li><strong>蛋白质：</strong>清蒸鱼100g/鸡胸肉80g/豆腐100g</li>
+                                    <li><strong>蔬菜：</strong>绿叶菜200g（清炒/凉拌，少油）</li>
+                                    <li><strong>油脂：</strong>橄榄油1茶匙（约5g）</li>
+                                    <li><strong>示例：</strong>糙米饭1碗 + 清蒸鲈鱼100g + 蒜蓉西兰花200g + 紫菜汤1碗</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>晚餐（约400-500大卡）</h3>
+                                <p><strong>原则：</strong>低GI碳水+易消化蛋白+高纤维蔬菜</p>
+                                <ul>
+                                    <li><strong>主食：</strong>杂粮粥1碗/玉米1根/山药100g</li>
+                                    <li><strong>蛋白质：</strong>白灼虾80g/嫩豆腐150g/蒸蛋1份</li>
+                                    <li><strong>蔬菜：</strong>菠菜/芹菜/芦笋等200g（少油烹饪）</li>
+                                    <li><strong>示例：</strong>杂粮粥（小米+南瓜）1碗 + 白灼虾80g + 凉拌菠菜200g</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>注意事项</h3>
+                                <ul>
+                                    <li><strong>总热量：</strong>根据个人活动量调整，久坐女性约1500-1600大卡，男性或运动人群可增至1800大卡</li>
+                                    <li><strong>烹饪方式：</strong>多用蒸、煮、炖，少油炸，盐＜5g/天</li>
+                                    <li><strong>饮水：</strong>每日1500-2000ml，避免含糖饮料</li>
+                                    <li><strong>灵活调整：</strong>可替换同类食材（如鱼→鸡，燕麦→全麦面包）</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 超重 -->
+                        <div class="diet-plan" id="overweight">
+                            <h2 class="bmi-title">
+                                <i class="fas fa-utensils"></i> BMI 24.0-27.9 饮食建议
+                                <a href="calorie.html" class="calorie-link">点击查看卡路里食谱</a>
+                            </h2>
+                            
+                            <div class="plan-section">
+                                <h3>早餐（约400-450大卡）</h3>
+                                <p><strong>原则：</strong>优质蛋白+低GI碳水+膳食纤维</p>
+                                <ul>
+                                    <li><strong>主食：</strong>全麦面包1片（或燕麦片40g）</li>
+                                    <li><strong>蛋白质：</strong>水煮蛋2个（或无糖酸奶150ml+奇亚籽5g）</li>
+                                    <li><strong>蔬果：</strong>西红柿1个/黄瓜半根（或苹果1小个）</li>
+                                    <li><strong>饮品：</strong>黑咖啡/无糖豆浆250ml</li>
+                                    <li><strong>替代选项：</strong>蔬菜鸡蛋饼（全麦粉30g+鸡蛋1个+菠菜50g）或杂粮粥（红豆+燕麦+小米）1小碗</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>午餐（约500-550大卡）</h3>
+                                <p><strong>原则：</strong>粗粮+瘦肉+大量蔬菜</p>
+                                <ul>
+                                    <li><strong>主食：</strong>杂粮饭100g（生重）或荞麦面80g（熟重）</li>
+                                    <li><strong>蛋白质：</strong>清蒸鱼150g（或鸡胸肉120g/豆腐100g）</li>
+                                    <li><strong>蔬菜：</strong>凉拌西兰花200g+木耳50g（少油）</li>
+                                    <li><strong>加餐（可选）：</strong>无糖希腊酸奶100g</li>
+                                    <li><strong>替代选项：</strong>虾仁炒糙米饭（虾仁80g+糙米饭80g+蔬菜200g）或鸡丝沙拉（鸡胸肉100g+混合生菜200g+橄榄油5g）</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>晚餐（约400-450大卡）</h3>
+                                <p><strong>原则：</strong>低脂蛋白+高纤维蔬菜+少量碳水</p>
+                                <ul>
+                                    <li><strong>主食：</strong>紫薯100g（或玉米1根）</li>
+                                    <li><strong>蛋白质：</strong>白灼虾80g（或瘦牛肉60g）</li>
+                                    <li><strong>蔬菜：</strong>蒜蓉空心菜200g（或冬瓜海带汤1碗）</li>
+                                    <li><strong>饮品：</strong>柠檬水/无糖绿茶</li>
+                                    <li><strong>替代选项：</strong>番茄豆腐汤（豆腐100g+番茄1个+菌菇50g）或蒸南瓜150g+三文鱼80g</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>关键注意事项</h3>
+                                <ul>
+                                    <li><strong>烹饪方式：</strong>蒸、煮、烤为主，避免红烧/油炸，用油≤20g/天</li>
+                                    <li><strong>控盐控糖：</strong>每日盐≤5g，避免含糖饮料/甜点</li>
+                                    <li><strong>饮水：</strong>每天1.5-2L，可搭配乌龙茶/普洱茶</li>
+                                    <li><strong>运动配合：</strong>建议每周3-5次有氧（如快走30分钟）+2次力量训练</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 肥胖 -->
+                        <div class="diet-plan" id="obese">
+                            <h2 class="bmi-title">
+                                <i class="fas fa-utensils"></i> BMI ≥ 28 饮食建议
+                                <a href="calorie.html" class="calorie-link">点击查看卡路里食谱</a>
+                            </h2>
+                            
+                            <div class="plan-section">
+                                <h3>早餐（约300-400kcal）</h3>
+                                <p><strong>原则：</strong>优质蛋白+低GI碳水+膳食纤维</p>
+                                <ul>
+                                    <li><strong>蛋白质：</strong>水煮蛋1个/无糖豆浆200ml/低脂牛奶200ml</li>
+                                    <li><strong>碳水：</strong>燕麦片30g（煮粥）/全麦面包1片/藜麦50g</li>
+                                    <li><strong>纤维：</strong>凉拌菠菜100g/番茄1个/黄瓜半根</li>
+                                    <li><strong>可选加餐：</strong>原味坚果10g（如杏仁、核桃）</li>
+                                    <li><strong>示例：</strong>燕麦粥（燕麦30g+奇亚籽5g）+ 水煮蛋1个 + 凉拌木耳50g</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>午餐（约400-500kcal）</h3>
+                                <p><strong>原则：</strong>低脂高蛋白+复合碳水+大量蔬菜</p>
+                                <ul>
+                                    <li><strong>主食：</strong>糙米饭80g（熟重）/紫薯150g/荞麦面50g（干重）</li>
+                                    <li><strong>蛋白质：</strong>鸡胸肉100g/清蒸鱼120g/豆腐150g</li>
+                                    <li><strong>蔬菜：</strong>水煮西兰花200g/清炒油麦菜250g（少油）</li>
+                                    <li><strong>油脂：</strong>橄榄油5g（用于烹饪）</li>
+                                    <li><strong>示例：</strong>糙米饭80g + 香煎鸡胸肉（少油）100g + 蒜蓉西兰花200g</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>晚餐（约300-400kcal）</h3>
+                                <p><strong>原则：</strong>易消化蛋白+低碳水+高纤维</p>
+                                <ul>
+                                    <li><strong>蛋白质：</strong>白灼虾80g/蒸豆腐100g/无糖酸奶150ml</li>
+                                    <li><strong>碳水：</strong>南瓜150g/玉米半根/杂粮粥1小碗</li>
+                                    <li><strong>蔬菜：</strong>生菜沙拉200g（无酱料）/冬瓜汤1碗</li>
+                                    <li><strong>示例：</strong>清蒸鲈鱼100g + 凉拌莴笋丝150g + 紫菜蛋花汤（无淀粉）</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>注意事项</h3>
+                                <ul>
+                                    <li><strong>烹饪方式：</strong>蒸、煮、烤为主，避免煎炸、红烧</li>
+                                    <li><strong>调味：</strong>少盐、少糖，可用柠檬汁、黑胡椒、香草代替部分调料</li>
+                                    <li><strong>饮水：</strong>每日1500-2000ml，避免含糖饮料</li>
+                                    <li><strong>禁忌：</strong>精制碳水（白米饭、白面包）、肥肉、甜点、酒精</li>
+                                </ul>
+                            </div>
+                            <div class="plan-section">
+                                <h3>营养目标</h3>
+                                <ul>
+                                    <li><strong>蛋白质：</strong>20-30%总热量（约60-90g/天）</li>
+                                    <li><strong>碳水：</strong>40-50%（优先选择低GI食物）</li>
+                                    <li><strong>脂肪：</strong>20-30%（以不饱和脂肪为主）</li>
+                                    <li><strong>运动建议：</strong>每周3-5次有氧运动（如快走、游泳）加速减脂，并定期监测体重和体脂率</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 轻启计划 - 健康生活新开始</p>
+        </div>
+    </footer>
+
+    <script src="js/health-plan.js"></script>
+</body>
+</html>

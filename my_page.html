@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轻启计划 - 我的健康中心</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+        <!-- 导航栏 -->
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <h1>轻启计划</h1>
+                </div>
+                <nav class="nav">
+                    <ul>
+                        <li class="active"><a href="index.html">首页</a></li>
+                        <li class="active"><a href="calorie.html">卡路里大全</a></li>
+                        <li class="active"><a href="health-plan.html">健康方案</a></li>
+                        <li class="active"><a href="exercise-plan.html">运动计划</a></li>
+                        <li class="active"><a href="my_page.html">我的</a></li>
+                    </ul>
+                </nav>
+                <div class="search-container">
+                    <button class="search-icon-btn" id="search-icon-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="search-expandable" id="search-expandable">
+                        <input type="text" id="search-input" placeholder="搜索...">
+                        <button id="search-btn">搜索</button>
+                    </div>
+                </div>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+
+
+
+    <!-- 主要内容区 -->
+    <main class="main-content-inner">
+        <div class="container">
+            <h1 class="page-title">我的健康中心</h1>
+            
+            <div class="dashboard">
+                <!-- 健康数据概览 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">健康数据概览</div>
+                        <div class="card-icon">📊</div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-text">
+                            <span>健康指数</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-text">
+                            <span>BMI: 22.3</span>
+                            <span>正常范围</span>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-text">
+                            <span>体脂率: 18%</span>
+                            <span>良好</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn" style="margin-top: 15px; display: block; text-align: center;">查看详细报告</a>
+                </div>
+                
+                <!-- 成就系统 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">我的成就</div>
+                        <div class="card-icon">🏆</div>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                        <div style="text-align: center;">
+                            <div style="width: 50px; height: 50px; background-color: #f4f4f4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 5px; color: var(--primary-color);">🔥</div>
+                            <div style="font-size: 12px;">7天连签</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="width: 50px; height: 50px; background-color: #f4f4f4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 5px; color: var(--primary-color);">🏃</div>
+                            <div style="font-size: 12px;">运动达人</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="width: 50px; height: 50px; background-color: #f4f4f4; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 5px; color: var(--primary-color);">🥗</div>
+                            <div style="font-size: 12px;">健康饮食</div>
+                        </div>
+                    </div>
+                    <a href="#" class="btn" style="margin-top: 15px; display: block; text-align: center;">查看所有成就</a>
+                </div>
+                
+                <!-- 近期目标 -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">近期目标</div>
+                        <div class="card-icon">🎯</div>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <input type="checkbox" style="margin-right: 10px;">
+                            <span>本周完成3次有氧运动</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                            <input type="checkbox" checked style="margin-right: 10px;">
+                            <span style="text-decoration: line-through; color: #aaa;">每天喝8杯水</span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <input type="checkbox" style="margin-right: 10px;">
+                            <span>尝试3种新蔬菜</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn" style="margin-top: 15px; display: block; text-align: center;">设置新目标</a>
+                </div>
+            </div>
+            
+            <!-- 定制食谱 -->
+            <div class="card" style="margin-bottom: 20px;">
+                <div class="card-header">
+                    <div class="card-title">定制食谱推荐</div>
+                    <div class="card-icon">🍽️</div>
+                </div>
+                <div>
+                    <div class="food-item">
+                        <div class="item-icon">🌞</div>
+                        <div class="item-details">
+                            <div class="item-title">早餐: 燕麦蓝莓碗</div>
+                            <div class="item-meta">350卡路里 | 高蛋白 | 低GI</div>
+                        </div>
+                        <a href="#" class="btn" style="padding: 5px 10px; font-size: 12px;">查看</a>
+                    </div>
+                    <div class="food-item">
+                        <div class="item-icon">☀️</div>
+                        <div class="item-details">
+                            <div class="item-title">午餐: 藜麦鸡胸沙拉</div>
+                            <div class="item-meta">450卡路里 | 低碳水 | 高纤维</div>
+                        </div>
+                        <a href="#" class="btn" style="padding: 5px 10px; font-size: 12px;">查看</a>
+                    </div>
+                    <div class="food-item">
+                        <div class="item-icon">🌙</div>
+                        <div class="item-details">
+                            <div class="item-title">晚餐: 三文鱼蔬菜拼盘</div>
+                            <div class="item-meta">400卡路里 | 富含ω-3 | 低盐</div>
+                        </div>
+                        <a href="#" class="btn" style="padding: 5px 10px; font-size: 12px;">查看</a>
+                    </div>
+                </div>
+                <a href="#" class="btn" style="margin-top: 15px; display: block; text-align: center;">查看更多食谱</a>
+            </div>
+            
+            <!-- 健康趋势 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">健康趋势</div>
+                    <div class="card-icon">📈</div>
+                </div>
+                <div class="chart-container">
+                    <!-- 这里应该是图表，用CSS简单模拟 -->
+                    <div style="height: 100%; display: flex; align-items: flex-end; justify-content: space-around;">
+                        <div style="width: 10%; height: 30%; background-color: var(--primary-color);"></div>
+                        <div style="width: 10%; height: 50%; background-color: var(--primary-color);"></div>
+                        <div style="width: 10%; height: 70%; background-color: var(--primary-color);"></div>
+                        <div style="width: 10%; height: 60%; background-color: var(--primary-color);"></div>
+                        <div style="width: 10%; height: 80%; background-color: var(--primary-color);"></div>
+                        <div style="width: 10%; height: 65%; background-color: var(--primary-color);"></div>
+                        <div style="width: 10%; height: 90%; background-color: var(--primary-color);"></div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-around; margin-top: 10px; font-size: 12px;">
+                    <span>周一</span>
+                    <span>周二</span>
+                    <span>周三</span>
+                    <span>周四</span>
+                    <span>周五</span>
+                    <span>周六</span>
+                    <span>周日</span>
+                </div>
+                <a href="#" class="btn" style="margin-top: 15px; display: block; text-align: center;">查看详细数据</a>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2023 轻启计划 - 你的健康刻度，由每一步选择丈量</p>
+    </footer>
+
+    <script src="js/my_page.js"></script>
+</body>
+</html>

@@ -1,0 +1,1795 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #fff8e1; /* 淡黄色背景 */
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 开屏动画样式 */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-screen video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skip-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.skip-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* 导航栏样式 */
+.header {
+    background-color: #3E532B; /* 蓝色主题 */
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav ul li {
+    margin-left: 20px;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav ul li a:hover, .nav ul li.active a {
+    /* color: #ffeb3b; */
+    color: white
+}
+
+/* 搜索容器样式 */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* 搜索图标按钮样式 */
+.search-icon-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px;
+    transition: all 0.3s;
+}
+
+.search-icon-btn:hover {
+    color: #ffeb3b;
+    transform: scale(1.1);
+}
+
+/* 可展开的搜索框样式 */
+.search-expandable {
+    position: absolute;
+    right: 0;
+    display: flex;
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.search-expandable.active {
+    width: 250px;
+}
+
+.search-expandable input {
+    flex: 1;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    font-size: 14px;
+    min-width: 0;
+}
+
+.search-expandable button {
+    padding: 8px 15px;
+    background-color: #3E532B;
+    color: white;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.search-expandable button:hover {
+    /* background-color: #1565c0; */
+    background-color: #3E532B;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .search-expandable.active {
+        width: 180px;
+    }
+    
+    .search-expandable input {
+        padding: 6px 12px;
+    }
+    
+    .search-expandable button {
+        padding: 6px 12px;
+    }
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* 轮播图样式 */
+.slider-section {
+    margin-bottom: 40px;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .slider {
+        height: 250px;
+    }
+}
+
+/* 主要内容区样式 */
+.main-content-inner {
+    padding: 40px 0;
+}
+
+.hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.left-image {
+    flex: 1;
+    min-width: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.left-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.left-image img:hover {
+    transform: scale(1.02);
+}
+
+.right-bmi {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.bmi-calculator {
+    background-color: transparent; /* 完全透明背景 */
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid rgba(255, 248, 225, 0.5); /* 与背景色相近的边框 */
+    backdrop-filter: blur(5px);
+}
+
+.bmi-calculator h2 {
+    color: #3E532B;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 24px;
+    text-shadow: 0 1px 2px rgba(255, 248, 225, 0.8); /* 添加文字阴影增强可读性 */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    /* color: #1976d2; */
+    color: #3E532B;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(255, 248, 225, 0.5);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(25, 118, 210, 0.3);
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: rgba(255, 248, 225, 0.7); /* 半透明背景色 */
+}
+
+#calculate-btn {
+    width: 100%;
+    padding: 14px;
+    /* background-color: rgba(25, 118, 210, 0.8); */
+    background-color: #5a7840;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    backdrop-filter: blur(5px);
+}
+
+#calculate-btn:hover {
+    /* background-color: rgba(21, 101, 192, 0.9); */
+    background-color: #3E532B;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: rgba(255, 248, 225, 0.6); /* 半透明背景色 */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 248, 225, 0.3);
+}
+
+/* BMI按钮样式 */
+.bmi-buttons {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.diet-btn {
+    background-color: #5a7840;
+    color: white;
+}
+
+.exercise-btn {
+    background-color: #3E532B;
+    color: white;
+}
+
+.button-group button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .button-group button {
+        width: 100%;
+    }
+}
+
+/* 页脚样式 */
+.footer {
+    background-color: #3E532B;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #1976d2;
+        padding: 20px;
+    }
+    
+    .nav.active {
+        display: block;
+    }
+    
+    .nav ul {
+        flex-direction: column;
+    }
+    
+    .nav ul li {
+        margin: 10px 0;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .search-box {
+        display: none;
+    }
+    
+    .hero-section {
+        flex-direction: column;
+    }
+    
+    .left-image, .right-bmi {
+        min-width: 100%;
+    }
+}
+
+
+/* 新增内容区域样式 */
+.additional-content {
+    padding: 60px 0;
+    background-color: #FCF8F5;
+    margin-bottom: 40px;
+}
+
+.content-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.content-col {
+    flex: 1;
+    min-width: 300px;
+}
+
+.name-slogan {
+    text-align: center;
+    justify-content: center;
+}
+
+.name-slogan .content-col {
+    flex: none;
+    max-width: 600px;
+}
+
+.name-slogan h3 {
+    font-size: 32px;
+    color: #3E532B;
+    margin-bottom: 15px;
+}
+
+.name-slogan p {
+    font-size: 18px;
+    color: #555;
+    font-style: italic;
+}
+
+.content-row img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.content-row img:hover {
+    transform: scale(1.02);
+}
+
+.policy-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px;
+    border-radius: 8px;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(25, 118, 210, 0.2);
+}
+
+.policy-card h4 {
+    color: #3E532B;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.policy-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .content-row {
+        flex-direction: column;
+    }
+    
+    .policy-image {
+        flex-direction: column-reverse;
+    }
+    
+    .additional-content {
+        padding: 40px 0;
+    }
+}
+
+
+/* 卡路里大全页面特定样式 */
+.calorie-main {
+    padding: 40px 0;
+    background-color: #FCF8F5;
+}
+
+/* .calorie-intro {
+    text-align: center;
+    margin-bottom: 40px;
+} */
+ /* 卡路里大全顶部宣传语样式 */
+.calorie-intro {
+    background-image: url('../images/卡路里大全页面.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 添加半透明黑色遮罩增强文字可读性
+.calorie-intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+} */
+
+/* 确保文字在遮罩上方 */
+.calorie-intro h2,
+.calorie-intro p,
+.calorie-intro .slogan {
+    position: relative;
+    z-index: 1;
+}
+
+.calorie-intro h2 {
+    font-size: 32px;
+    color: #3E532B;
+    margin-bottom: 15px;
+}
+
+.calorie-intro p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.calorie-intro .slogan {
+    font-size: 20px;
+    color: #3E532B;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.food-categories h3 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.food-categories h3::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #3E532B;
+    margin: 15px auto 0;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.category-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.category-card h4 {
+    padding: 15px 20px 5px;
+    color: #3E532B;
+    font-size: 20px;
+}
+
+.category-card p {
+    padding: 0 20px 15px;
+    color: #666;
+}
+
+.food-details {
+    display: none;
+    margin-top: 40px;
+}
+
+.back-to-categories {
+    margin-bottom: 20px;
+}
+
+#back-btn {
+    padding: 10px 20px;
+    background-color: #3E532B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#back-btn:hover {
+    background-color: #3E532B;
+}
+
+#category-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.food-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.food-item {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.food-name {
+    font-size: 18px;
+    color: #3E532B;
+    margin-bottom: 10px;
+}
+
+.food-alias {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.food-calorie {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .food-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 新增的卡路里大全样式 */
+.food-details {
+    display: none;
+    margin-top: 40px;
+    background-color: #FCF8F5;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #777;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 5px;
+}
+
+.close-btn:hover {
+    color: #3E532B;
+}
+
+/* 原有分类网格调整为3列 */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* 食物列表样式 */
+.food-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.food-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.food-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.food-name {
+    font-size: 18px;
+    color: #3E532B;
+    margin-bottom: 8px;
+}
+
+.food-alias {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.food-calorie {
+    font-size: 16px;
+    color: #e53935;
+    font-weight: bold;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .categories-grid, .food-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .details-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .close-btn {
+        margin-top: 15px;
+        align-self: flex-end;
+    }
+}
+
+
+
+
+
+
+/* 健康方案页面特定样式 */
+.health-plan-main {
+    padding: 40px 0;
+    background-color: #FCF8F5;
+}
+
+.health-intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.health-intro h1 {
+    font-size: 36px;
+    color: #3E532B;
+    margin-bottom: 15px;
+}
+
+.health-intro .subtitle {
+    font-size: 20px;
+    color: #555;
+}
+
+/* 健康原则网格 */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.principle-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.principle-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    background-color: #e3f2fd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.icon-box i {
+    font-size: 30px;
+    /*图标颜色*/
+    color: #1976d2;
+}
+
+.principle-card h3 {
+    color: #3E532B;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.principle-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* 一日饮食建议 */
+.daily-meal-plan {
+    margin-top: 40px;
+}
+
+
+.daily-meal-plan h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.daily-meal-plan h2 i {
+    margin-right: 15px;
+    color: #3E532B;
+}
+
+
+
+.meal-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.meal-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.meal-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+}
+
+.meal-card.breakfast::before {
+    background-color: #FFC107;
+}
+
+.meal-card.lunch::before {
+    background-color: #4CAF50;
+}
+
+.meal-card.dinner::before {
+    background-color: #3E532B;
+}
+
+.meal-card.snack::before {
+    background-color: #9C27B0;
+}
+
+.meal-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.meal-header i {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.breakfast .meal-header i {
+    color: #FFC107;
+}
+
+.lunch .meal-header i {
+    color: #4CAF50;
+}
+
+.dinner .meal-header i {
+    color: #2196F3;
+}
+
+.snack .meal-header i {
+    color: #9C27B0;
+}
+
+.meal-header h3 {
+    font-size: 22px;
+    color: #333;
+}
+
+.meal-card ul {
+    list-style-type: none;
+}
+
+.meal-card li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    color: #555;
+}
+
+.meal-card li:last-child {
+    border-bottom: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .principles-grid, .meal-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .health-intro h1 {
+        font-size: 28px;
+    }
+    
+    .health-intro .subtitle {
+        font-size: 18px;
+    }
+}
+
+
+/* 卡路里食谱链接样式 */
+.bmi-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.calorie-link {
+    font-size: 14px;
+    color: #5a7840;
+    text-decoration: none;
+    border-bottom: 1px dashed #5a7840;
+    transition: all 0.3s;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.calorie-link:hover {
+    color: #3E532B;
+    border-bottom-color: #3E532B;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .bmi-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .calorie-link {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+}
+
+/* BMI饮食建议样式 */
+.bmi-diet-plan {
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.bmi-container {
+    display: flex;
+    min-height: 600px;
+}
+
+.bmi-categories {
+    width: 250px;
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+}
+
+.bmi-category {
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-bottom: 1px solid #eee;
+}
+
+.bmi-category:hover {
+    background-color: #e3f2fd;
+}
+
+.bmi-category.active {
+    background-color: #3E532B;
+    color: white;
+}
+
+.bmi-category h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.bmi-category p {
+    font-size: 14px;
+    color: #777;
+}
+
+.bmi-category.active p {
+    color: #e3f2fd;
+}
+
+.diet-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.diet-plan {
+    display: none;
+}
+
+.diet-plan.active {
+    display: block;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.diet-plan h2 {
+    color: #3E532B;
+    margin-bottom: 25px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.diet-plan h2 i {
+    margin-right: 15px;
+}
+
+.plan-section {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+}
+
+.plan-section:last-child {
+    border-bottom: none;
+}
+
+.plan-section h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.plan-section p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.plan-section ul {
+    list-style-type: none;
+}
+
+.plan-section li {
+    padding: 8px 0;
+    color: #555;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.plan-section li::before {
+    content: "•";
+    color: #5a7840;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.plan-section strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .bmi-container {
+        flex-direction: column;
+    }
+    
+    .bmi-categories {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .bmi-category {
+        min-width: 150px;
+        border-bottom: none;
+        border-right: 1px solid #eee;
+    }
+    
+    .diet-content {
+        padding: 20px;
+    }
+    
+    .diet-plan h2 {
+        font-size: 20px;
+    }
+    
+    .plan-section h3 {
+        font-size: 18px;
+    }
+}
+
+
+
+
+
+/* 运动计划页面特定样式 */
+.exercise-main {
+    padding: 40px 0;
+    background-color: #FCF8F5;
+}
+
+.exercise-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.exercise-intro h1 {
+    font-size: 36px;
+    color: #3E532B;
+    margin-bottom: 15px;
+}
+
+.exercise-intro .subtitle {
+    font-size: 20px;
+    color: #555;
+}
+
+/* 标签页样式 */
+.exercise-tabs {
+    margin-top: 30px;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tab-btn {
+    padding: 12px 25px;
+    background-color: #e3f2fd;
+    /* color: #1976d2; */
+    color: #3E532B;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    background-color: #bbdefb;
+}
+
+.tab-btn.active {
+    background-color: #19d21c;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tab-content h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-content h2 i {
+    margin-right: 15px;
+    color: #3E532B;
+}
+
+.plan-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.day-plan {
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.day-plan:hover {
+    transform: translateY(-5px);
+}
+
+.day-plan h3 {
+    color: #3E532B;
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.day-plan ul {
+    list-style-type: none;
+}
+
+.day-plan li {
+    padding: 10px 0;
+    color: #555;
+    position: relative;
+    padding-left: 25px;
+}
+
+.day-plan li::before {
+    content: "•";
+    color: #1976d2;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 7px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .plan-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .exercise-intro h1 {
+        font-size: 28px;
+    }
+    
+    .exercise-intro .subtitle {
+        font-size: 18px;
+    }
+    
+    .tab-content h2 {
+        font-size: 24px;
+    }
+}
+
+
+
+/* 视频容器样式 */
+.content-col video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.video-controls button {
+    background-color: rgba(25, 118, 210, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-controls button:hover {
+    background-color: rgba(25, 118, 210, 1);
+    transform: scale(1.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .content-col video {
+        max-height: 200px;
+    }
+}
+
+
+/* 悬浮AI助手按钮样式 */
+.ai-float-btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background-color: #779f55;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.ai-float-btn:hover {
+    background-color: #5a7840;
+    transform: scale(1.1);
+}
+
+.ai-float-btn i {
+    font-size: 24px;
+}
+
+/* 悬浮聊天窗口样式 */
+.ai-chat-container {
+    position: fixed;
+    bottom: 120px;
+    right: -400px;
+    width: 380px;
+    height: 500px;
+    background-color: white;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ai-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.ai-chat-container.active {
+    right: 0;
+}
+
+.ai-header {
+    padding: 15px;
+    background-color: #769e53;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-header h2 {
+    font-size: 18px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.ai-header h2 i {
+    margin-right: 10px;
+}
+
+.close-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.ai-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.ai-input-area {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background-color: white;
+    display: flex;
+}
+
+.ai-input-area input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    outline: none;
+    font-size: 14px;
+}
+
+.ai-input-area button {
+    padding: 0 20px;
+    margin-left: 10px;
+    background-color: #5a7840;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.ai-input-area button:hover {
+    background-color: #5a7840;
+}
+
+.ai-disclaimer {
+    padding: 8px;
+    background-color: #f5f5f5;
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* AI消息气泡 */
+.ai-response .message-content {
+    background-color: rgba(90, 120, 64, 0.1); /* 基于#5a7840的浅色背景 */
+    border-left: 3px solid #5a7840;
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .ai-float-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .ai-chat-container {
+        width: 100%;
+        height: 70vh;
+        bottom: 0;
+        right: -100%;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .ai-chat-container.active {
+        right: 0;
+    }
+}
+
+/* 我的页面*/
+        :root {
+            /* --primary-color: #FFD700; */
+            --primary-color: #3E532B;
+            /* --secondary-color: #FFECB3; */
+            --secondary-color: #3E532B;
+            /* --accent-color: #FFC107; */
+            --accent-color: #5a7840;
+            --text-color: #333;
+            --light-bg: #FFF9E6;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            /* background-color: #e9e39d; 淡黄色背景 */
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        
+        /* 主要内容区 */
+        .main-content-inner {
+            padding: 30px 0;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        /* 卡片样式 */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .card-icon {
+            width: 30px;
+            height: 30px;
+            /* background-color: var(--secondary-color); 每个右上角的标背景*/
+            background-color: #f4f4f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+        
+        /* 进度条样式 */
+        .progress-container {
+            margin-top: 15px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 65%;
+        }
+        
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #777;
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            /* background-color: #e8ffdd; */
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            /* background-color: #e8ffdd; */
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        /* 食物和运动项目样式 */
+        .food-item, .exercise-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .food-item:last-child, .exercise-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-icon {
+            width: 40px;
+            height: 40px;
+            /* background-color: var(--secondary-color);定制食谱表情背景 */
+            background-color: #f4f4f4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+        
+        .item-details {
+            flex-grow: 1;
+        }
+        
+        .item-title {
+            font-weight: bold;
+        }
+        
+        .item-meta {
+            font-size: 12px;
+            color: #777;
+        }
+        
+        /* 图表容器 */
+        .chart-container {
+            height: 200px;
+            margin-top: 15px;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 15px;
+                box-shadow: var(--box-shadow);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }

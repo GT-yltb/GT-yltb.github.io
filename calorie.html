@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轻启计划 - 卡路里大全</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 (与首页相同) -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>轻启计划</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li class="active"><a href="calorie.html">卡路里大全</a></li>
+                    <li class="active"><a href="health-plan.html">健康方案</a></li>
+                    <li class="active"><a href="exercise-plan.html">运动计划</a></li>
+                    <li class="active"><a href="my_page.html">我的</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <button class="search-icon-btn" id="search-icon-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="search-expandable" id="search-expandable">
+                    <input type="text" id="search-input" placeholder="搜索...">
+                    <button id="search-btn">搜索</button>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- 悬浮AI助手按钮 -->
+    <div class="ai-float-btn" id="ai-float-btn">
+        <img src="images/ai图.png" alt="AI助手" class="ai-logo">
+    </div>
+
+<!-- 悬浮聊天窗口 -->
+<div class="ai-chat-container" id="ai-chat-container">
+    <div class="ai-header">
+        <h2><img src="images/ai图.png" alt="AI助手" class="ai-logo"> ai小启</h2>
+        <button class="close-chat" id="close-chat"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="ai-messages" id="ai-messages">
+        <div class="ai-message ai-response">
+            <div class="message-content">
+                您好！我是轻启计划的AI健康助手，可以为您解答关于饮食、运动、BMI等方面的健康问题。请问有什么可以帮您？
+            </div>
+        </div>
+    </div>
+    <div class="ai-input-area">
+        <input type="text" id="ai-question" placeholder="输入您的健康问题...">
+        <button id="ai-send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+    <div class="ai-disclaimer">
+        <small>免责声明：AI回答仅供参考，不能替代专业医疗建议</small>
+    </div>
+</div>
+
+    <!-- 卡路里大全主内容 -->
+    <main class="calorie-main">
+        <div class="container">
+            <!-- 顶部宣传语 -->
+            <section class="calorie-intro">
+                <h2>超过 100 万种食物数据</h2>
+                <p>食物营养查询，吃适合的食物</p>
+                <p class="slogan">家庭全食物热量和营养库，吃前量一量饮食更健康</p>
+            </section>
+
+            <!-- 食物分类展示 -->
+            <section class="food-categories">
+                <h3>常见食物分类</h3>
+                <div class="categories-grid">
+                    <!-- 每个分类卡片 -->
+                    <div class="category-card" data-category="主食">
+                        <img src="images/食物/主食.jpeg" alt="主食">
+                        <h4>谷薯类、杂豆、主食</h4>
+                        <p>米饭、鲜玉米、馒头、红薯等</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="蛋肉类">
+                        <img src="images/食物/蛋肉类.jpeg" alt="蛋肉类">
+                        <h4>蛋类、肉类及制品</h4>
+                        <p>鸡蛋、鸡肉、鲫鱼等</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="奶制品">
+                        <img src="images/食物/奶制品.jpeg" alt="奶制品">
+                        <h4>奶类及制品</h4>
+                        <p>牛奶、酸奶、奶酪等</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="蔬果类">
+                        <img src="images/食物/蔬果类.jpeg" alt="蔬果类">
+                        <h4>蔬菜水果类</h4>
+                        <p>各种新鲜蔬菜和水果</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="零食小吃">
+                        <img src="images/食物/零食小吃.jpeg" alt="零食小吃">
+                        <h4>零食小吃</h4>
+                        <p>各类休闲食品</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="饮料">
+                        <img src="images/食物/饮料.jpeg" alt="饮料">
+                        <h4>饮料类</h4>
+                        <p>各种饮品</p>
+                    </div>
+                    
+                    <!-- 新增的三个分类 -->
+                    <div class="category-card" data-category="坚果大豆类">
+                        <img src="images/食物/坚果大豆类.jpeg" alt="坚果大豆类">
+                        <h4>坚果大豆类</h4>
+                        <p>坚果、豆制品等</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="油类">
+                        <img src="images/食物/油类.jpeg" alt="油类">
+                        <h4>油类</h4>
+                        <p>食用油、脂肪类</p>
+                    </div>
+                    
+                    <div class="category-card" data-category="调味品">
+                        <img src="images/食物/调味品.jpeg" alt="调味品">
+                        <h4>调味品类</h4>
+                        <p>各种调味料</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 食物详情区域 (初始隐藏) -->
+            <section class="food-details" id="food-details">
+                <div class="details-header">
+                    <h3 id="category-title">谷薯芋、杂豆、主食</h3>
+                    <button id="close-details" class="close-btn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="food-list" id="food-list">
+                    <!-- 动态生成食物列表 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 (与首页相同) -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 轻启计划 - 健康生活新开始</p>
+        </div>
+    </footer>
+
+    <script src="js/calorie.js"></script>
+</body>
+</html>
