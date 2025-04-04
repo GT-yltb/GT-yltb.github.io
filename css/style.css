@@ -480,7 +480,7 @@ body {
         top: 70px;
         left: 0;
         width: 100%;
-        background-color: #1976d2;
+        background-color: #3E532B;
         padding: 20px;
     }
     
@@ -960,7 +960,7 @@ body {
 .icon-box i {
     font-size: 30px;
     /*图标颜色*/
-    color: #1976d2;
+    color: #3E532B;
 }
 
 .principle-card h3 {
@@ -1057,7 +1057,7 @@ body {
 }
 
 .dinner .meal-header i {
-    color: #2196F3;
+    color: #3E532B;
 }
 
 .snack .meal-header i {
@@ -1423,7 +1423,7 @@ body {
 
 .day-plan li::before {
     content: "•";
-    color: #1976d2;
+    color: #19d21c;
     font-size: 20px;
     position: absolute;
     left: 0;
@@ -1468,7 +1468,8 @@ body {
 }
 
 .video-controls button {
-    background-color: rgba(25, 118, 210, 0.8);
+    /* background-color: rgba(25, 118, 210, 0.8); */
+    background-color: #729a4f;
     color: white;
     border: none;
     border-radius: 50%;
@@ -1482,7 +1483,8 @@ body {
 }
 
 .video-controls button:hover {
-    background-color: rgba(25, 118, 210, 1);
+    /* background-color: rgba(25, 118, 210, 1); */
+    background-color: #6f9350;
     transform: scale(1.1);
 }
 

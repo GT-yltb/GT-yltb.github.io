@@ -54,26 +54,53 @@ function performSearch() {
     }
 }
     
-    // BMI分类切换功能
-    const bmiCategories = document.querySelectorAll('.bmi-category');
-    const dietPlans = document.querySelectorAll('.diet-plan');
-    
-    bmiCategories.forEach(category => {
-        category.addEventListener('click', function() {
-            const bmiType = this.getAttribute('data-bmi');
-            
-            // 移除所有分类和内容的active类
-            bmiCategories.forEach(cat => cat.classList.remove('active'));
-            dietPlans.forEach(plan => plan.classList.remove('active'));
-            
-            // 为当前分类和内容添加active类
-            this.classList.add('active');
-            document.getElementById(bmiType).classList.add('active');
-        });
-    });
+   
+     // BMI分类切换功能
+     const bmiCategories = document.querySelectorAll('.bmi-category');
+     const dietPlans = document.querySelectorAll('.diet-plan');
+     
+     // 初始化显示对应的BMI内容
+     function initBMIContent() {
+         // 获取URL hash
+         const hash = window.location.hash.substring(1);
+         const validBMITypes = ['underweight', 'normal', 'overweight', 'obese'];
+         
+         // 检查hash是否有效
+         if (hash && validBMITypes.includes(hash)) {
+             showBMIContent(hash);
+         } else {
+             // 默认显示第一个分类
+             showBMIContent('underweight');
+         }
+     }
+     
+     // 显示指定BMI类型的内容
+     function showBMIContent(bmiType) {
+         // 移除所有active类
+         bmiCategories.forEach(cat => cat.classList.remove('active'));
+         dietPlans.forEach(plan => plan.classList.remove('active'));
+         
+         // 为当前分类和内容添加active类
+         const activeCategory = document.querySelector(`.bmi-category[data-bmi="${bmiType}"]`);
+         const activePlan = document.getElementById(bmiType);
+         
+         if (activeCategory) activeCategory.classList.add('active');
+         if (activePlan) activePlan.classList.add('active');
+         
+     }
+     
+     // 为每个BMI分类添加点击事件
+     bmiCategories.forEach(category => {
+         category.addEventListener('click', function() {
+             const bmiType = this.getAttribute('data-bmi');
+             showBMIContent(bmiType);
+         });
+     });
+     // 初始化内容显示
+    initBMIContent();
+
+
 });
-
-
 
 
 

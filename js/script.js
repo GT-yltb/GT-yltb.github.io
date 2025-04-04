@@ -86,34 +86,7 @@ function performSearch() {
     }
 }
 
-// // 轮播图功能
-// const slides = document.querySelectorAll('.slide');
-// let currentSlide = 0;
 
-// function showSlide(n) {
-//     slides.forEach(slide => slide.classList.remove('active'));
-//     currentSlide = (n + slides.length) % slides.length;
-//     slides[currentSlide].classList.add('active');
-// }
-
-// function nextSlide() {
-//     showSlide(currentSlide + 1);
-// }
-
-
-
-// // 自动轮播
-// let slideInterval = setInterval(nextSlide, 2000);
-
-// // 鼠标悬停暂停轮播
-// const slider = document.querySelector('.slider');
-// slider.addEventListener('mouseenter', () => {
-//     clearInterval(slideInterval);
-// });
-
-// slider.addEventListener('mouseleave', () => {
-//     slideInterval = setInterval(nextSlide, 3000);
-// });
 
 
 // 轮播图功能
@@ -189,81 +162,126 @@ slider.addEventListener('mouseleave', startAutoSlide);
 
 
     
+    // // BMI计算器功能
+    // const calculateBtn = document.getElementById('calculate-btn');
+    // const heightInput = document.getElementById('height');
+    // const weightInput = document.getElementById('weight');
+    // const resultDiv = document.getElementById('result');
+    
+    // calculateBtn.addEventListener('click', function() {
+    //     const height = parseFloat(heightInput.value) / 100; // 转换为米
+    //     const weight = parseFloat(weightInput.value);
+        
+    //     if (isNaN(height) || isNaN(weight)) {
+    //         resultDiv.textContent = '请输入有效的身高和体重';
+    //         resultDiv.style.backgroundColor = 'rgba(255, 235, 238, 0.8)';
+    //         resultDiv.style.color = '#c62828';
+    //         document.getElementById('bmi-buttons').innerHTML = ''; // 清空按钮
+    //         return;
+    //     }
+        
+    //     if (height <= 0 || weight <= 0) {
+    //         resultDiv.textContent = '身高和体重必须大于0';
+    //         resultDiv.style.backgroundColor = 'rgba(255, 235, 238, 0.8)';
+    //         resultDiv.style.color = '#c62828';
+    //         document.getElementById('bmi-buttons').innerHTML = ''; // 清空按钮
+    //         return;
+    //     }
+        
+    //     const bmi = weight / (height * height);
+    //     let category, color;
+        
+    //     if (bmi < 18.5) {
+    //         category = '偏瘦';
+    //         color = 'rgba(255, 243, 224, 0.8)';
+    //     } else if (bmi < 24) {
+    //         category = '正常';
+    //         color = 'rgba(232, 245, 233, 0.8)';
+    //     } else if (bmi < 28) {
+    //         category = '超重';
+    //         color = 'rgba(255, 243, 224, 0.8)';
+    //     } else {
+    //         category = '肥胖';
+    //         color = 'rgba(255, 235, 238, 0.8)';
+    //     }
+        
+    //     resultDiv.textContent = `您的BMI: ${bmi.toFixed(1)} (${category})`;
+    //     resultDiv.style.backgroundColor = color;
+    //     resultDiv.style.color = '#2e7d32';
+        
+    //     // 添加跳转按钮
+    //     const buttonsDiv = document.getElementById('bmi-buttons');
+    //     buttonsDiv.innerHTML = `
+    //         <div class="button-group">
+    //             <button class="diet-btn" onclick="window.location.href='health-plan.html'">饮食建议</button>
+    //             <button class="exercise-btn" onclick="window.location.href='exercise-plan.html'">运动建议</button>
+    //         </div>
+    //     `;
+    // });
+
     // BMI计算器功能
-    const calculateBtn = document.getElementById('calculate-btn');
-    const heightInput = document.getElementById('height');
-    const weightInput = document.getElementById('weight');
-    const resultDiv = document.getElementById('result');
+const calculateBtn = document.getElementById('calculate-btn');
+const heightInput = document.getElementById('height');
+const weightInput = document.getElementById('weight');
+const resultDiv = document.getElementById('result');
+
+calculateBtn.addEventListener('click', function() {
+    const height = parseFloat(heightInput.value) / 100; // 转换为米
+    const weight = parseFloat(weightInput.value);
     
-    calculateBtn.addEventListener('click', function() {
-        const height = parseFloat(heightInput.value) / 100; // 转换为米
-        const weight = parseFloat(weightInput.value);
-        
-        if (isNaN(height) || isNaN(weight)) {
-            resultDiv.textContent = '请输入有效的身高和体重';
-            resultDiv.style.backgroundColor = 'rgba(255, 235, 238, 0.8)';
-            resultDiv.style.color = '#c62828';
-            document.getElementById('bmi-buttons').innerHTML = ''; // 清空按钮
-            return;
-        }
-        
-        if (height <= 0 || weight <= 0) {
-            resultDiv.textContent = '身高和体重必须大于0';
-            resultDiv.style.backgroundColor = 'rgba(255, 235, 238, 0.8)';
-            resultDiv.style.color = '#c62828';
-            document.getElementById('bmi-buttons').innerHTML = ''; // 清空按钮
-            return;
-        }
-        
-        const bmi = weight / (height * height);
-        let category, color;
-        
-        if (bmi < 18.5) {
-            category = '偏瘦';
-            color = 'rgba(255, 243, 224, 0.8)';
-        } else if (bmi < 24) {
-            category = '正常';
-            color = 'rgba(232, 245, 233, 0.8)';
-        } else if (bmi < 28) {
-            category = '微胖';
-            color = 'rgba(255, 243, 224, 0.8)';
-        } else {
-            category = '肥胖';
-            color = 'rgba(255, 235, 238, 0.8)';
-        }
-        
-        resultDiv.textContent = `您的BMI: ${bmi.toFixed(1)} (${category})`;
-        resultDiv.style.backgroundColor = color;
-        resultDiv.style.color = '#2e7d32';
-        
-        // 添加跳转按钮
-        const buttonsDiv = document.getElementById('bmi-buttons');
-        buttonsDiv.innerHTML = `
-            <div class="button-group">
-                <button class="diet-btn" onclick="window.location.href='health-plan.html'">饮食建议</button>
-                <button class="exercise-btn" onclick="window.location.href='exercise-plan.html'">运动建议</button>
-            </div>
-        `;
-    });
+    if (isNaN(height) || isNaN(weight)) {
+        resultDiv.textContent = '请输入有效的身高和体重';
+        resultDiv.style.backgroundColor = 'rgba(255, 235, 238, 0.8)';
+        resultDiv.style.color = '#c62828';
+        document.getElementById('bmi-buttons').innerHTML = ''; // 清空按钮
+        return;
+    }
     
-    // // 搜索功能
-    // const searchBtn = document.getElementById('search-btn');
-    // const searchInput = document.getElementById('search-input');
+    if (height <= 0 || weight <= 0) {
+        resultDiv.textContent = '身高和体重必须大于0';
+        resultDiv.style.backgroundColor = 'rgba(255, 235, 238, 0.8)';
+        resultDiv.style.color = '#c62828';
+        document.getElementById('bmi-buttons').innerHTML = ''; // 清空按钮
+        return;
+    }
     
-    // searchBtn.addEventListener('click', function() {
-    //     const searchTerm = searchInput.value.trim().toLowerCase();
-    //     if (searchTerm) {
-    //         alert(`搜索: ${searchTerm}\n实际应用中这里会跳转到搜索结果或滚动到相关内容`);
-    //         // 实际应用中这里可以添加跳转到搜索结果的逻辑
-    //     }
-    // });
+    const bmi = weight / (height * height);
+    let category, color, bmiType;
     
-    // // 允许按回车键搜索
-    // searchInput.addEventListener('keypress', function(e) {
-    //     if (e.key === 'Enter') {
-    //         searchBtn.click();
-    //     }
-    // });
+    if (bmi < 18.5) {
+        category = '偏瘦';
+        color = 'rgba(255, 243, 224, 0.8)';
+        bmiType = 'underweight';
+    } else if (bmi < 24) {
+        category = '正常';
+        color = 'rgba(232, 245, 233, 0.8)';
+        bmiType = 'normal';
+    } else if (bmi < 28) {
+        category = '超重';
+        color = 'rgba(255, 243, 224, 0.8)';
+        bmiType = 'overweight';
+    } else {
+        category = '肥胖';
+        color = 'rgba(255, 235, 238, 0.8)';
+        bmiType = 'obese';
+    }
+    
+    resultDiv.textContent = `您的BMI: ${bmi.toFixed(1)} (${category})`;
+    resultDiv.style.backgroundColor = color;
+    resultDiv.style.color = '#2e7d32';
+    
+    // 添加跳转按钮
+    const buttonsDiv = document.getElementById('bmi-buttons');
+    buttonsDiv.innerHTML = `
+        <div class="button-group">
+            <button class="diet-btn" onclick="window.location.href='health-plan.html#${bmiType}'">${category}饮食建议</button>
+            <button class="exercise-btn" onclick="window.location.href='exercise-plan.html'">运动建议</button>
+        </div>
+    `;
+});
+
+
+
 });
 // 视频控制功能
 const video = document.querySelector('.content-col video');
@@ -400,7 +418,7 @@ function fetchDeepSeekAI(question, thinkingId) {
  标准范围：
   - 偏瘦：<18.5
   - 正常：18.5-23.9
-  - 微胖：24-27.9
+  - 超重：24-27.9
   - 肥胖：≥28
  测量建议：晨起空腹测量更准确
 您可以使用首页的BMI计算器进行自我评估`;
@@ -520,73 +538,3 @@ aiQuestion.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') sendQuestion();
 });
 
-// 实际应用中替换为真实的DeepSeek API调用
-
-
-// async function fetchDeepSeekAI(question, thinkingId) {
-//     const API_KEY = "Bearer sk-c0a97593bdaf48ad9ce0ddc3d59da5bc"; // 确保这是最新有效的Key
-//     const API_URL = "https://api.deepseek.com/v1/chat/completions";
-
-//     try {
-//         // 调试：打印请求信息
-//         console.log("发送请求：", {
-//             question,
-//             key: API_KEY.slice(0, 5) + "..." // 避免控制台暴露完整Key
-//         });
-
-//         const response = await fetch(API_URL, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `Bearer sk-c0a97593bdaf48ad9ce0ddc3d59da5bc`
-//             },
-//             body: JSON.stringify({
-//                 model: "deepseek-chat",
-//                 messages: [
-//                     {
-//                         role: "system",
-//                         content: "你是一个专业的健康顾问，回答需简明准确，不超过100字"
-//                     },
-//                     {
-//                         role: "user",
-//                         content: question
-//                     }
-//                 ],
-//                 temperature: 0.7,
-//                 max_tokens: 500
-//             })
-//         });
-
-//         // 增强错误处理
-//         if (!response.ok) {
-//             const errorData = await response.json();
-//             console.error("API错误详情：", errorData);
-//             throw new Error(`请求失败：${response.status}`);
-//         }
-
-//         const data = await response.json();
-//         console.log("完整响应：", data); // 关键调试点
-
-//         // 安全移除"正在思考"消息
-//         const thinkingElement = document.getElementById(thinkingId);
-//         if (thinkingElement) {
-//             thinkingElement.remove();
-//         }
-
-//         // 强化数据解析
-//         const answer = data.choices?.[0]?.message?.content 
-//                       || data.error?.message 
-//                       || "未能获取有效回答";
-        
-//         addMessage(answer, 'ai-response');
-
-//     } catch (error) {
-//         console.error("请求异常：", error);
-//         const errorMsg = error.message.includes("401") 
-//             ? "认证失败，请检查API Key" 
-//             : "服务暂时不可用，请稍后重试";
-        
-//         document.getElementById(thinkingId)?.remove();
-//         addMessage(errorMsg, 'ai-response');
-//     }
-// }
