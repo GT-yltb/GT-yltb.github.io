@@ -86,32 +86,106 @@ function performSearch() {
     }
 }
 
+// // 轮播图功能
+// const slides = document.querySelectorAll('.slide');
+// let currentSlide = 0;
+
+// function showSlide(n) {
+//     slides.forEach(slide => slide.classList.remove('active'));
+//     currentSlide = (n + slides.length) % slides.length;
+//     slides[currentSlide].classList.add('active');
+// }
+
+// function nextSlide() {
+//     showSlide(currentSlide + 1);
+// }
+
+
+
+// // 自动轮播
+// let slideInterval = setInterval(nextSlide, 2000);
+
+// // 鼠标悬停暂停轮播
+// const slider = document.querySelector('.slider');
+// slider.addEventListener('mouseenter', () => {
+//     clearInterval(slideInterval);
+// });
+
+// slider.addEventListener('mouseleave', () => {
+//     slideInterval = setInterval(nextSlide, 3000);
+// });
+
+
 // 轮播图功能
 const slides = document.querySelectorAll('.slide');
+const indicators = document.querySelectorAll('.indicator');
+const prevBtn = document.getElementById('prev-slide');
+const nextBtn = document.getElementById('next-slide');
 let currentSlide = 0;
+let slideInterval;
 
 function showSlide(n) {
+    // 更新幻灯片
     slides.forEach(slide => slide.classList.remove('active'));
     currentSlide = (n + slides.length) % slides.length;
     slides[currentSlide].classList.add('active');
+    
+    // 更新指示器
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    indicators[currentSlide].classList.add('active');
 }
 
 function nextSlide() {
     showSlide(currentSlide + 1);
 }
 
-// 自动轮播
-let slideInterval = setInterval(nextSlide, 3000);
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+function startAutoSlide() {
+    slideInterval = setInterval(nextSlide, 3000);
+}
+
+function stopAutoSlide() {
+    clearInterval(slideInterval);
+}
+
+// 初始化
+showSlide(currentSlide);
+startAutoSlide();
+
+// 事件监听
+prevBtn.addEventListener('click', () => {
+    prevSlide();
+    stopAutoSlide();
+    startAutoSlide();
+});
+
+nextBtn.addEventListener('click', () => {
+    nextSlide();
+    stopAutoSlide();
+    startAutoSlide();
+});
+
+// 指示器点击事件
+indicators.forEach(indicator => {
+    indicator.addEventListener('click', () => {
+        const slideIndex = parseInt(indicator.getAttribute('data-slide'));
+        showSlide(slideIndex);
+        stopAutoSlide();
+        startAutoSlide();
+    });
+});
 
 // 鼠标悬停暂停轮播
-const slider = document.querySelector('.slider');
-slider.addEventListener('mouseenter', () => {
-    clearInterval(slideInterval);
-});
+const slider = document.querySelector('.slider-section');
+slider.addEventListener('mouseenter', stopAutoSlide);
+slider.addEventListener('mouseleave', startAutoSlide);
 
-slider.addEventListener('mouseleave', () => {
-    slideInterval = setInterval(nextSlide, 3000);
-});
+
+
+
 
 
     

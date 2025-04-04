@@ -28,10 +28,10 @@
                 <nav class="nav">
                     <ul>
                         <li class="active"><a href="index.html">首页</a></li>
-                        <li class="active"><a href="calorie.html">卡路里大全</a></li>
-                        <li class="active"><a href="health-plan.html">健康方案</a></li>
-                        <li class="active"><a href="exercise-plan.html">运动计划</a></li>
-                        <li class="active"><a href="my_page.html">我的</a></li>
+                        <li ><a href="calorie.html">卡路里大全</a></li>
+                        <li ><a href="health-plan.html">健康方案</a></li>
+                        <li ><a href="exercise-plan.html">运动计划</a></li>
+                        <li ><a href="my_page.html">我的</a></li>
                     </ul>
                 </nav>
                 <div class="search-container">
@@ -50,27 +50,44 @@
         </header>
 
 
-        <!-- 轮播图区域 -->
+
+
+
+<!-- 修改后的轮播图区域 -->
 <section class="slider-section">
     <div class="slider">
         <!-- 图片列表 -->
         <div class="slide active">
-            <img src="images/123/轮番图/lu1.JPG" alt="健康生活图片1">
+            <img src="images/123/IMG_1.JPG" alt="健康生活图片1">
         </div>
         <div class="slide">
-            <img src="images/123/轮番图/lu2.PNG" alt="健康生活图片2">
+            <img src="images/123/IMG_2.JPG" alt="健康生活图片2">
         </div>
         <div class="slide">
-            <img src="images/123/轮番图/lu3.JPG" alt="健康生活图片3">
+            <img src="images/123/IMG_3.JPG" alt="健康生活图片3">
         </div>
         <div class="slide">
-            <img src="images/123/轮番图/lu4.JPG" alt="健康饮食图片">
+            <img src="images/123/IMG_4.JPG" alt="健康饮食图片">
         </div>
         <div class="slide">
-            <img src="images/123/轮番图/lu5.JPEG" alt="运动健身图片">
+            <img src="images/123/IMG_5.JPG" alt="运动健身图片">
         </div>
         <div class="slide">
-            <img src="images/123/轮番图/lu6.JPG" alt="心理健康图片">
+            <img src="images/123/IMG_6.JPG" alt="心理健康图片">
+        </div>
+        
+        <!-- 导航箭头 -->
+        <button class="slider-arrow prev" id="prev-slide">&#10094;</button>
+        <button class="slider-arrow next" id="next-slide">&#10095;</button>
+        
+        <!-- 指示器 -->
+        <div class="slider-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+            <span class="indicator" data-slide="3"></span>
+            <span class="indicator" data-slide="4"></span>
+            <span class="indicator" data-slide="5"></span>
         </div>
     </div>
 </section>
@@ -81,7 +98,7 @@
             <div class="container">
                 <div class="hero-section">
                     <div class="left-image">
-                        <img src="images/tp1.jpg" alt="健康生活示例">
+                        <img src="images/lu2.png" alt="健康生活示例">
                     </div>
                     <div class="right-bmi">
                         <div class="bmi-calculator">
@@ -106,7 +123,7 @@
 
 <!-- 悬浮AI助手按钮 -->
 <div class="ai-float-btn" id="ai-float-btn">
-    <img src="images/ai图.png" alt="AI助手" class="ai-logo">
+    <img src="images/ai图1.png" alt="AI助手" class="ai-logo">
 </div>
 
 <!-- 悬浮聊天窗口 -->
@@ -177,31 +194,23 @@
             <div class="content-col">
                 <div class="policy-card">
                     <h4>运动政策</h4>
-                    <p>运动政策通常指的是政府或相关组织为了促进公共健康、提高国民身体素质、推动体育产业发展等目的而制定的一系列方针和措施。下面，我将根据这些目标概述一个典型的运动政策内容。
+                    <p>运动政策旨在通过一系列措施促进全民健康，提高国民身体素质。核心内容包括：
                         <br>
-                         一、总体目标
+                        1. 设施建设：增加公共体育设施供给，特别是在社区、学校和工作场所中建设更多可及性强的健身场地，确保民众有地方锻炼。
                         <br>
-                        运动政策的总体目标是通过构建和完善全民健身服务体系，提高全民参与体育活动的积极性，促进公共健康水平提升，增强国家整体竞争力，并推动体育产业的发展。同时，强调预防为主的原则，将健康管理关口前移，建立体育与卫生健康部门协同合作的新模式。
+                        2. 活动推广：组织多样化的群众性体育赛事和活动，鼓励全民参与，如马拉松、球类比赛等，激发公众对运动的兴趣。
                         <br>
-                        二、具体措施
+                        3. 指导服务：提供专业的运动指导与咨询服务，培养社会体育指导员，为不同年龄段和社会群体量身定制健身计划。
                         <br>
-                        （一）设施建设<br>
-                        1. 增加公共体育设施：加大对城市公园、社区健身中心、学校操场等公共场所内体育设施的投资建设力度，确保每个社区都有便捷可达的健身场所。
-                        2. 优化现有资源利用效率：开放学校、企事业单位内部体育场馆给公众使用，特别是在非工作学习时间；鼓励社会力量参与体育设施建设运营。
+                        4. 支持机制：设立专项基金支持体育产业发展，给予税收优惠，吸引社会资本投入，促进体育产业繁荣。
                         <br>
-                        （二）服务供给<br>
-                        1. 丰富活动形式：举办各类群众性赛事活动，如马拉松、自行车赛、健步走等，激发民众参与热情；定期开展免费体质监测服务，提供个性化运动指导方案。
-                        2. 加强人才培养：培养一批专业的社会体育指导员，为市民提供科学合理的健身指导；支持高校开设体育相关专业课程，培养更多高素质的专业人才。
+                        5. 国际合作：借鉴国际先进经验和技术，提升本国体育水平；积极参与国际体育交流，增强国际影响力。
                         <br>
-                        （三）政策支持<br>
-                        1. 财政补贴：设立专项资金，对积极参与全民健身活动的企业和个人给予奖励；对新建改建体育设施项目给予适当的资金补助。
-                        2. 税收优惠：对从事体育产业的企业实行税收减免政策，降低其经营成本，吸引更多社会资本投入体育领域。
-                        <br>
-                        综上所述，一个全面且有效的运动政策不仅能够有效促进国民健康水平的提升，还能带动体育及相关产业的繁荣发展，为实现中华民族伟大复兴的中国梦奠定坚实的物质基础和精神支撑。</p>
+                        通过实施上述政策，目标是构建一个积极健康的国家形象，提高全民健康水平，同时推动经济和社会发展。这些措施不仅有助于减少医疗开支，还能提高工作效率和生活质量。</p>
                 </div>
             </div>
             <div class="content-col">
-                <img src="images/运动.jpg" alt="运动示例">
+                <img src="images/运动政策图片.jpg" alt="运动示例">
             </div>
         </div>
         
@@ -225,7 +234,7 @@
         <!-- 页脚 -->
         <footer class="footer">
             <div class="container">
-                <p>&copy; 2023 轻启计划 - 健康生活新开始</p>
+                <p>&copy; 2025 轻启计划 - 健康生活新开始</p>
             </div>
         </footer>
     </div>

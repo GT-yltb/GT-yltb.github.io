@@ -96,7 +96,7 @@ body {
 
 .nav ul li a:hover, .nav ul li.active a {
     /* color: #ffeb3b; */
-    color: white
+    color: #ffeb3b
 }
 
 /* 搜索容器样式 */
@@ -186,46 +186,118 @@ body {
 }
 
 
-/* 轮播图样式 */
+/* 轮播图容器 - 全宽度 */
 .slider-section {
-    margin-bottom: 40px;
-}
-
-.slider {
-    position: relative;
+    height: 500px;
     width: 100%;
-    height: 400px;
+    position: relative;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5; /* 备用背景色 */
 }
 
+/* 轮播图滑动区域 */
+.slider {
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+/* 单个幻灯片 */
 .slide {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .slide.active {
     opacity: 1;
 }
 
+/* 图片样式 */
 .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-/* 响应式设计 */
+/* 导航箭头样式 */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+/* 指示器样式 */
+.slider-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* 响应式调整 */
 @media (max-width: 768px) {
-    .slider {
-        height: 250px;
+    .slider-section {
+        height: 300px;
+    }
+    
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
     }
 }
+
 
 /* 主要内容区样式 */
 .main-content-inner {
@@ -242,9 +314,11 @@ body {
 .left-image {
     flex: 1;
     min-width: 300px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* 移除可能影响背景的属性 */
+    border-radius: 0; /* 如果不需要圆角 */
+    overflow: visible; /* 改为visible避免裁剪 */
+    box-shadow: none; /* 移除阴影避免影响透明效果 */
+    background: transparent; /* 明确设置为透明 */
 }
 
 .left-image img {
@@ -252,6 +326,12 @@ body {
     height: auto;
     display: block;
     transition: transform 0.3s;
+    /* 确保没有背景色 */
+    background: transparent;
+    /* 确保边框不会影响 */
+    border: none;
+    /* 确保轮廓不会影响 */
+    outline: none;
 }
 
 .left-image img:hover {
@@ -521,6 +601,8 @@ body {
         padding: 40px 0;
     }
 }
+
+
 
 
 /* 卡路里大全页面特定样式 */
@@ -1419,7 +1501,7 @@ body {
     right: 40px;
     width: 60px;
     height: 60px;
-    background-color: #779f55;
+    background-color: #d3f8ce;
     color: white;
     border-radius: 50%;
     display: flex;
